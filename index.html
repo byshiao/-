@@ -251,7 +251,7 @@
     }
 
     .check-btn.checked {
-      background: var(--success);
+      background: var(--primary);
       color: white;
     }
 
@@ -267,8 +267,13 @@
       transition: all 0.2s;
     }
 
+    .interactive-btn.completed {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
     .interactive-btn:active {
-      background-color: #e5e7eb;
       transform: scale(0.98);
     }
 
@@ -421,7 +426,7 @@
     <div class="card">
       <div class="question-num">Question 03</div>
       <div class="question-text">大聲對隔壁的人說一聲：「早安！」</div>
-      <button class="interactive-btn" onclick="alert('很好！請確定隔壁有聽到喔！')">🗣️ 點我確認已大聲說早安</button>
+      <button class="interactive-btn" onclick="markDone(this, '🗣️ 已大聲說早安')">🗣️ 點我確認已大聲說早安</button>
     </div>
 
     <div class="card">
@@ -459,55 +464,55 @@
     <div class="card">
       <div class="question-num">Question 06</div>
       <div class="question-text">站起來轉一圈，然後坐下。</div>
-      <button class="interactive-btn" onclick="alert('轉完圈請重新坐好！')">🔄 已完成轉圈</button>
+      <button class="interactive-btn" onclick="markDone(this, '🔄 已完成轉圈')">🔄 已完成轉圈</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 07</div>
       <div class="question-text">在心裡默數 1 到 5。</div>
-      <button class="interactive-btn" id="countBtn" onclick="startCount()">⏱️ 按下開始默數 5 秒</button>
+      <button class="interactive-btn" id="countBtn" onclick="markDone(this, '⏱️ 已完成默數')">⏱️ 按下確認已默數 5 秒</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 08</div>
       <div class="question-text">用右手摸一下你的左耳。</div>
-      <button class="interactive-btn" onclick="alert('很好！維持專注！')">👂 已用右手摸左耳</button>
+      <button class="interactive-btn" onclick="markDone(this, '👂 已用右手摸左耳')">👂 已用右手摸左耳</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 09</div>
       <div class="question-text">模仿貓咪學喵叫一聲「喵～」。</div>
-      <button class="interactive-btn" onclick="alert('喵～ 🐱 很有感！')">🐱 點我發出喵叫聲</button>
+      <button class="interactive-btn" onclick="markDone(this, '🐱 已完成喵叫聲')">🐱 點我發出喵叫聲</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 10</div>
       <div class="question-text">與你右邊的人禮貌地握握手。</div>
-      <button class="interactive-btn" onclick="alert('🤝 握手完成！')">🤝 已與右邊夥伴握手</button>
+      <button class="interactive-btn" onclick="markDone(this, '🤝 已與右邊夥伴握手')">🤝 已與右邊夥伴握手</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 11</div>
       <div class="question-text">用左手拍拍自己的頭頂三下。</div>
-      <button class="interactive-btn" onclick="alert('拍拍頭，繼續保持注意力！')">✋ 已拍頭三下</button>
+      <button class="interactive-btn" onclick="markDone(this, '✋ 已拍頭三下')">✋ 已拍頭三下</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 12</div>
       <div class="question-text">深呼吸一次並吐氣。</div>
-      <button class="interactive-btn" onclick="alert('呼～ 保持平靜！')">🌬️ 深呼吸完成</button>
+      <button class="interactive-btn" onclick="markDone(this, '🌬️ 深呼吸完成')">🌬️ 深呼吸完成</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 13</div>
       <div class="question-text">舉高你的手機 3 秒鐘。</div>
-      <button class="interactive-btn" id="liftBtn" onclick="liftPhone()">📱 舉高手機計時</button>
+      <button class="interactive-btn" id="liftBtn" onclick="markDone(this, '📱 舉高手機完成')">📱 舉高手機確認</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 14</div>
       <div class="question-text">跟左邊的人眨一下眼睛。</div>
-      <button class="interactive-btn" onclick="alert('😉 眨眼示意完成！')">😉 已向左邊眨眼</button>
+      <button class="interactive-btn" onclick="markDone(this, '😉 已向左邊眨眼')">😉 已向左邊眨眼</button>
     </div>
 
     <div class="card">
@@ -519,13 +524,13 @@
     <div class="card">
       <div class="question-num">Question 16</div>
       <div class="question-text">輕輕敲擊兩下你的膝蓋。</div>
-      <button class="interactive-btn" onclick="alert('膝蓋敲擊完成！')">🦵 已敲擊膝蓋</button>
+      <button class="interactive-btn" onclick="markDone(this, '🦵 已敲擊膝蓋')">🦵 已敲擊膝蓋</button>
     </div>
 
     <div class="card">
       <div class="question-num">Question 17</div>
       <div class="question-text">向對面的夥伴揮揮手。</div>
-      <button class="interactive-btn" onclick="alert('👋 揮手打招呼完成！')">👋 已揮手</button>
+      <button class="interactive-btn" onclick="markDone(this, '👋 已揮手')">👋 已揮手</button>
     </div>
 
     <div class="card">
@@ -594,7 +599,13 @@
       }, 1000);
     });
 
-    // 2. 第 4 題：圓形畫布與連動打勾
+    // 2. 通用按鈕點擊後變藍底反白（不跳 Alert）
+    function markDone(btn, text) {
+      btn.classList.add('completed');
+      if (text) btn.innerText = text;
+    }
+
+    // 3. 第 4 題：圓形畫布與連動打勾
     const circles = [
       { canvas: document.getElementById('circle1'), drawn: false, checked: false },
       { canvas: document.getElementById('circle2'), drawn: false, checked: false },
@@ -661,47 +672,18 @@
       });
     }
 
-    // 3. 互動按鈕功能
+    // 4. Question 05 輕敲三下按鈕
     let tapCount = 0;
     function tapScreen(btn) {
       tapCount++;
       btn.innerText = `📱 輕敲三下螢幕 (${tapCount}/3)`;
       if(tapCount >= 3) {
-        setTimeout(() => alert('已完成輕敲三下！'), 100);
+        btn.classList.add('completed');
+        btn.innerText = '📱 已完成輕敲三下';
       }
     }
 
-    function startCount() {
-      let btn = document.getElementById('countBtn');
-      let c = 5;
-      btn.disabled = true;
-      let timer = setInterval(() => {
-        btn.innerText = `⏱️ 默數中... ${c}`;
-        c--;
-        if (c < 0) {
-          clearInterval(timer);
-          btn.innerText = `✅ 默數完成`;
-          btn.disabled = false;
-        }
-      }, 1000);
-    }
-
-    function liftPhone() {
-      let btn = document.getElementById('liftBtn');
-      let c = 3;
-      btn.disabled = true;
-      let timer = setInterval(() => {
-        btn.innerText = `📱 保持舉高... ${c}s`;
-        c--;
-        if (c < 0) {
-          clearInterval(timer);
-          btn.innerText = `✅ 舉高完成`;
-          btn.disabled = false;
-        }
-      }, 1000);
-    }
-
-    // 4. 第 19 題簽名板
+    // 5. 第 19 題簽名板
     const sigCanvas = document.getElementById('sigCanvas');
     const sigCtx = sigCanvas.getContext('2d');
     let isSigDrawing = false;
@@ -743,14 +725,15 @@
       hasSigned = false;
     }
 
-    // 5. 陷阱驗證邏輯 (第 20 題)
+    // 6. 陷阱驗證邏輯 (第 20 題)
     function validateForm() {
       const q1 = document.getElementById('q1').value.trim();
       const q2 = document.getElementById('q2').value;
       const q20 = document.getElementById('q20').value.trim();
       const hasDrawnCircle = circles.some(c => c.drawn || c.checked);
+      const hasCompletedButtons = document.querySelectorAll('.interactive-btn.completed').length > 0;
 
-      const didOtherQuestions = q1 !== "" || q2 !== "" || hasSigned || hasDrawnCircle || tapCount > 0;
+      const didOtherQuestions = q1 !== "" || q2 !== "" || hasSigned || hasDrawnCircle || tapCount > 0 || hasCompletedButtons;
 
       if (didOtherQuestions) {
         showModal('❌ 挑戰失敗！被騙到了吧～', '第 20 題明明寫著：「第 1 題到第 19 題的指令通通不用做」！你花時間做前面的題目囉！', '🤪');
@@ -762,7 +745,7 @@
       }
     }
 
-    // 6. Modal 彈窗控制
+    // 7. Modal 彈窗控制
     function showModal(title, desc, icon) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerHTML = desc;
@@ -773,7 +756,7 @@
       document.getElementById('resultModal').classList.remove('active');
     }
 
-    // 7. QR Code 產生
+    // 8. QR Code 產生
     function openQrModal() {
       const currentUrl = encodeURIComponent(window.location.href);
       const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${currentUrl}`;

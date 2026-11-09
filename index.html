@@ -736,7 +736,7 @@
       const didOtherQuestions = q1 !== "" || q2 !== "" || hasSigned || hasDrawnCircle || tapCount > 0 || hasCompletedButtons;
 
       if (didOtherQuestions) {
-        showModal('❌ 挑戰失敗！被騙到了吧～', '第 20 題明明寫著：「第 1 題到第 19 題的指令通通不用做」！你花時間做前面的題目囉！', '🤪');
+        showModal('❌ 挑戰失敗！', '第 20 題明明寫著：「第 1 題到第 19 題的指令通通不用做」！你花時間做前面的題目囉！', '🤪');
       } else if (q20 === '我看完了') {
         showModal('🎉 恭喜通關！執行力大師！', '你成功完整閱讀了題目，沒有掉入陷阱！<br><br><b>請保持安靜，雙手抱胸看著其他人繼續做！</b>', '🏆');
         if (timerInterval) clearInterval(timerInterval);
